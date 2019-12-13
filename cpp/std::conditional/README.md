@@ -20,9 +20,15 @@ template<class _Ty1,
 	};
 ```
 
-위 코드를 보면 struct conditional<true, _Ty1, _Ty2>로 부분 특수화가 되어 있다. 
+템플릿에 bool _Test로 타입이 아닌 매개변수가 들어가 있다.
 
-따라서 _Test의 위치에 true가 들어갈 경우 부분 특수화에 의해 struct conditional<true, _Ty1, _Ty2>이 선택되고, type은 _Ty1 타입으로 지정된다.
+이것을 Non-Type template Parameter이라 한다.
+
+위 코드를 보면 Non-Type template Parameter에 대해 값으로 struct conditional<true, _Ty1, _Ty2>로 부분 특수화가 되어 있다.
+
+따라서 _Test의 값으로 true가 전달될 경우 부분 특수화에 의해 struct conditional<true, _Ty1, _Ty2>이 선택되고, type은 _Ty1 타입으로 지정된다.
+
+_Test가 false일 경우 기본 템플릿을 선택하여 type이 _Ty2 타입으로 지정된다. 
 
 ## 추가 정보
 
